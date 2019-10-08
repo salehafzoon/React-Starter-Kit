@@ -1,18 +1,18 @@
 .login-container {
-    max-width: 420px;
-    margin: 0 auto;
-    margin: 0 auto;
-    margin-top: 10px;
-    max-height: 100%;
-    /* background-color: black */
+  max-width: 420px;
+  margin: 0 auto;
+  margin: 0 auto;
+  margin-top: 10px;
+  max-height: 100%;
 }
 
 .login-form-button {
-    width: 100%;
+  width: 100%;
+  color: black;
 }
-.login-content{
-    /* background-color: red */
+.login-content {
+  /* background-color: red */
 }
-.login-item{
-    padding: 0%;
+.login-item {
+  padding: 0%;
 }

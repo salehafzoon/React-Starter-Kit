@@ -1,135 +1,164 @@
-import React, { Component } from 'react';
-import { signup } from '../../util/APIUtils';
-import './Signup.css';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { signup } from "../../util/APIUtils";
+import "./Signup.css";
+import { Link } from "react-router-dom";
 
-import { Form, Input, Button, notification, Card } from 'antd';
+import { Form, Input, Button, notification, Card, Icon } from "antd";
+import strings from "../../res/Strings";
 const FormItem = Form.Item;
 
 class Signup extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: {
-                value: ''
-            },
-            phone: {
-                value: ''
-            },
-            email: {
-                value: ''
-            },
-            password: {
-                value: ''
-            }
-        }
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: {
+        value: ""
+      },
+      phone: {
+        value: ""
+      },
+      email: {
+        value: ""
+      },
+      password: {
+        value: ""
+      }
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const inputName = target.name;
-        const inputValue = target.value;
+  handleInputChange(event) {
+    const target = event.target;
+    const inputName = target.name;
+    const inputValue = target.value;
 
-        this.setState({
-            [inputName]: {
-                value: inputValue,
-            }
+    this.setState({
+      [inputName]: {
+        value: inputValue
+      }
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    if (
+      this.state.name.value == "" ||
+      this.state.phone.value == "" ||
+      this.state.email.value == "" ||
+      this.state.password.value == ""
+    )
+      notification.error({
+        message: "App",
+        description: strings.fill_the_form
+      });
+    else {
+      const signupRequest = {
+        name: this.state.name.value,
+        email: this.state.email.value,
+        phone: this.state.phone.value,
+        password: this.state.password.value
+      };
+      signup(signupRequest)
+        .then(response => {
+          notification.success({
+            message: "App",
+            description: strings.registration_successfully_done
+          });
+          this.props.history.push("/Login");
+        })
+        .catch(error => {
+          notification.error({
+            message: "App",
+            description:
+              error.message || "Sorry! Something went wrong. Please try again!"
+          });
         });
     }
+  }
 
-    handleSubmit(event) {
-        event.preventDefault();
+  render() {
+    return (
+      <div className="signup-container">
+        <Card>
+          <h1
+            className="page-title"
+            style={{ color: "#009688", textAlign: "center" }}
+          >
+            {strings.signup}
+          </h1>
+          <div className="signup-content">
+            <Form onSubmit={this.handleSubmit} className="signup-form">
+              <FormItem>
+                <Input
+                  size="large"
+                  name={strings.name}
+                  style={{ textAlign: "center" }}
+                  suffix={<Icon type="smile" style={{ fontSize: "25px" }} />}
+                  placeholder={strings.full_name}
+                  value={this.state.name.value}
+                  onChange={event => this.handleInputChange(event)}
+                />
+              </FormItem>
+              <FormItem>
+                <Input
+                  size="large"
+                  name={strings.email}
+                  style={{ textAlign: "center" }}
+                  suffix={<Icon type="mail" style={{ fontSize: "25px" }} />}
+                  type="email"
+                  placeholder={strings.email}
+                  value={this.state.email.value}
+                  onChange={event => this.handleInputChange(event)}
+                />
+              </FormItem>
 
-        if (this.state.name.value == '' ||
-            this.state.phone.value == '' ||
-            this.state.email.value == '' ||
-            this.state.password.value == '')
-            notification.error({
-                message: 'Chat App',
-                description: 'Fill the form'
-            });
-        else {
-            const signupRequest = {
-                name: this.state.name.value,
-                email: this.state.email.value,
-                phone: this.state.phone.value,
-                password: this.state.password.value
-            };
-            signup(signupRequest)
-                .then(response => {
-                    notification.success({
-                        message: 'Chat App',
-                        description: "Thank you! You're successfully registered.",
-                    });
-                    this.props.history.push("/Login");
-                }).catch(error => {
-                    notification.error({
-                        message: 'Chat App',
-                        description: error.message || 'Sorry! Something went wrong. Please try again!'
-                    });
-                });
-        }
-
-    }
-
-    render() {
-        return (
-            <div className="signup-container">
-                <Card>
-                    <h1 className="page-title">Sign Up</h1>
-                    <div className="signup-content">
-                        <Form onSubmit={this.handleSubmit} className="signup-form">
-                            <FormItem label="Name">
-                                <Input
-                                    size="large"
-                                    name="name"
-                                    placeholder="Your full name"
-                                    value={this.state.name.value}
-                                    onChange={(event) => this.handleInputChange(event)} />
-                            </FormItem>
-                            <FormItem label="Phone">
-                                <Input
-                                    size="large"
-                                    name="phone"
-                                    placeholder="phone number"
-                                    value={this.state.phone.value}
-                                    onChange={(event) => this.handleInputChange(event)} />
-                            </FormItem>
-                            <FormItem label="Email">
-                                <Input
-                                    size="large"
-                                    name="email"
-                                    type="email"
-                                    placeholder="Your email"
-                                    value={this.state.email.value}
-                                    onChange={(event) => this.handleInputChange(event)} />
-                            </FormItem>
-                            <FormItem label="Password">
-                                <Input
-                                    size="large"
-                                    name="password"
-                                    type="password"
-                                    placeholder="password"
-                                    value={this.state.password.value}
-                                    onChange={(event) => this.handleInputChange(event)} />
-                            </FormItem>
-                            <FormItem>
-                                <Button type="primary"
-                                    htmlType="submit"
-                                    size="large"
-                                    className="signup-form-button">Sign up</Button>
-                                Already registed? <Link to="/login">Login now!</Link>
-                            </FormItem>
-                        </Form>
-                    </div>
-
-                </Card>
-            </div>
-        );
-    }
-
+              <FormItem>
+                <Input
+                  size="large"
+                  name="username"
+                  style={{ textAlign: "center" }}
+                  suffix={<Icon type="user" style={{ fontSize: "25px" }} />}
+                  type="username"
+                  placeholder={strings.username}
+                  value={this.state.email.value}
+                  onChange={event => this.handleInputChange(event)}
+                />
+              </FormItem>
+              <FormItem>
+                <Input
+                  size="large"
+                  name="password"
+                  style={{ textAlign: "center" }}
+                  suffix={<Icon type="lock" style={{ fontSize: "25px" }} />}
+                  type="password"
+                  placeholder={strings.password}
+                  value={this.state.password.value}
+                  onChange={event => this.handleInputChange(event)}
+                />
+              </FormItem>
+              <FormItem
+              style={{ fontSize: 18, textAlign: "center" }}>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  size="large"
+                  className="signup-form-button"
+                >
+                  {strings.signup}
+                </Button>
+                <div style={{ marginTop: 20 }}>
+                  {strings.already_have_account}{" "}
+                  <Link to="/login" style={{ marginTop: 10 }}>{strings.login}</Link>
+                </div>
+              </FormItem>
+            </Form>
+          </div>
+        </Card>
+      </div>
+    );
+  }
 }
 
 export default Signup;

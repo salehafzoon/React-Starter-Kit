@@ -1,4 +1,6 @@
 const strings = {
+    name:'نام',
+    full_name:'نام نام خانوادگی',
     username: "شناسه کاربری",
     password: "رمز عبور",
     login_to_site:'ورود به سایت',
@@ -10,6 +12,9 @@ const strings = {
     gender: "جنسیت",
     phone: "شماره تماس",
     email: "ایمیل",
+    fill_the_form:'اطلاعات مورد نیاز را وارد کنید',
+    registration_successfully_done:'ثبت نام شما با موفقیت انجام شد',
+    already_have_account:'حساب کاربری دارید؟',
 }
 
 export default strings

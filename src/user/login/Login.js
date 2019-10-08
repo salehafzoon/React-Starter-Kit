@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { login } from "../../util/APIUtils";
 import "./Login.css";
+import "../../res/CssStyles.css";
+
 import { Link } from "react-router-dom";
 import { ACCESS_TOKEN } from "../../constants";
 
 import "antd/dist/antd.css";
 import { Form, Input, Button, Icon, notification, Card, Layout } from "antd";
-import { black } from "ansi-colors";
 import strings from "../../res/Strings";
+import { red } from "ansi-colors";
 
 const { Content } = Layout;
 const FormItem = Form.Item;
@@ -29,8 +31,7 @@ class Login extends Component {
       description: "You're successfully logged in."
     });
 
-    // this.props.history.push("/ChatApp");
-    this.props.history.replace("/ChatApp");
+    this.props.history.replace("/Main");
   }
 
   render() {
@@ -41,7 +42,7 @@ class Login extends Component {
           <Card>
             <div className="login-container">
               <center>
-                <h1 className="app-title">App Title</h1>
+                <h1 className="primary_big">App Title</h1>
               </center>
               <h2
                 className="page-title"
@@ -72,13 +73,13 @@ class LoginForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    this.setState({
-      disabledBtn: true
-    });
-
     this.props.form.validateFields((err, values) => {
       if (!err) {
         const loginRequest = Object.assign({}, values);
+
+        this.setState({
+          disabledBtn: true
+        });
 
         login(loginRequest)
           .then(response => {
@@ -144,14 +145,14 @@ class LoginForm extends Component {
             type="primary"
             htmlType="submit"
             size="large"
-            className="login-form-button"
+            className="login-form-button primary_btn"
             style={{ marginTop: 20 }}
           >
             {strings.login}
           </Button>
-          <div style={{marginTop:20}}>
-            {strings.dont_have_account}{" "}
-            <Link to="/signup" style={{ margin: 10 }}>
+          <div style={{ marginTop: 20 }}>
+            {strings.dont_have_account}
+            <Link to="/signup" style={{ margin: 10}}>
               {strings.signup}
             </Link>
           </div>

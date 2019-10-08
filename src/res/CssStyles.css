@@ -1,0 +1,87 @@
+.primary_dark_big {
+    color: #00695f;
+    font-family: sans-serif;
+    font-size: 3em;
+  }
+  
+  .primary_dark {
+    color: #00695f;
+    font-family: sans-serif;
+    font-size: 2em;
+  }
+  
+  .primary_dark_small {
+    color: #00695f;
+    font-family: sans-serif;
+    font-size: 1em;
+  }
+  
+  .primary_big {
+    color: #009688;
+    font-family: sans-serif;
+    font-size: 3em;
+  }
+  
+  .primary_title {
+    color: #009688;
+    font-family: sans-serif;
+    font-size: 2em;
+  }
+  
+  .primary_small {
+    color: #009688;
+    font-family: sans-serif;
+    font-size: 1em;
+  }
+  
+  .accent_dark_big {
+    color: #ff3d00;
+    font-family: sans-serif;
+    font-size: 3em;
+  }
+  
+  .accent_dark {
+    color: #ff3d00;
+    font-family: sans-serif;
+    font-size: 2em;
+  }
+  
+  .accent_dark_small {
+    color: #ff3d00;
+    font-family: sans-serif;
+    font-size: 1em;
+  }
+  
+  .accent_big {
+    color: #ff6333;
+    font-family: sans-serif;
+    font-size: 3em;
+  }
+  
+  .accent {
+    color: #ff6333;
+    font-family: sans-serif;
+    font-size: 2em;
+  }
+  
+  .accent_small {
+    color: #ff6333;
+    font-family: sans-serif;
+    font-size: 1em;
+  }
+  
+
+  .primary_btn {
+    color:white;
+    background: #009688;
+    font-family: sans-serif;
+    font-size: 1em;
+  }
+
+  .accent_btn {
+    color:white;
+    background: #ff6333;
+    font-family: sans-serif;
+    font-size: 1em;
+  }
+  
