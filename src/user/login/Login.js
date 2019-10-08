@@ -7,6 +7,7 @@ import { ACCESS_TOKEN } from "../../constants";
 import "antd/dist/antd.css";
 import { Form, Input, Button, Icon, notification, Card, Layout } from "antd";
 import { black } from "ansi-colors";
+import strings from "../../res/Strings";
 
 const { Content } = Layout;
 const FormItem = Form.Item;
@@ -35,19 +36,24 @@ class Login extends Component {
   render() {
     const AntWrappedLoginForm = Form.create()(LoginForm);
     return (
-      <Layout className="app-container" style={{flex:1}}>
-        <Content className="app-content" style={{flex:1}}>
-            <Card>
-              <div className="login-container">
-                <center>
-                  <h1 className="app-title">Chat App</h1>
-                </center>
-                <h2 className="page-title">Login</h2>
-                <div className="login-content">
-                  <AntWrappedLoginForm onLogin={this.handleLogin} />
-                </div>
+      <Layout className="app-container">
+        <Content className="app-content">
+          <Card>
+            <div className="login-container">
+              <center>
+                <h1 className="app-title">App Title</h1>
+              </center>
+              <h2
+                className="page-title"
+                style={{ margin: 80, textAlign: "center" }}
+              >
+                {strings.login_to_site}
+              </h2>
+              <div className="login-content">
+                <AntWrappedLoginForm onLogin={this.handleLogin} />
               </div>
-            </Card>
+            </div>
+          </Card>
         </Content>
       </Layout>
     );
@@ -106,11 +112,12 @@ class LoginForm extends Component {
             rules: [{ required: true, message: "Please input your Email!" }]
           })(
             <Input
-              prefix={<Icon type="user" />}
+              style={{ justifyContent: "center", textAlign: "center" }}
+              suffix={<Icon type="user" style={{ fontSize: "30px" }} />}
               size="large"
               name="email"
               type="email"
-              placeholder="Email"
+              placeholder={strings.email}
             />
           )}
         </FormItem>
@@ -119,25 +126,35 @@ class LoginForm extends Component {
             rules: [{ required: true, message: "Please input your Password!" }]
           })(
             <Input
-              prefix={<Icon type="lock" />}
+              style={{ justifyContent: "center", textAlign: "center" }}
+              suffix={<Icon type="lock" style={{ fontSize: "30px" }} />}
               size="large"
               name="password"
               type="password"
-              placeholder="Password"
+              placeholder={strings.password}
             />
           )}
         </FormItem>
-        <FormItem className="login-item">
+        <FormItem
+          className="login-item"
+          style={{ fontSize: 18, textAlign: "center" }}
+        >
           <Button
             disabled={this.state.disabledBtn}
             type="primary"
             htmlType="submit"
             size="large"
             className="login-form-button"
+            style={{ marginTop: 20 }}
           >
-            Login
+            {strings.login}
           </Button>
-          Or <Link to="/signup">register now!</Link>
+          <div style={{marginTop:20}}>
+            {strings.dont_have_account}{" "}
+            <Link to="/signup" style={{ margin: 10 }}>
+              {strings.signup}
+            </Link>
+          </div>
         </FormItem>
       </Form>
     );
