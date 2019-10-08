@@ -136,13 +136,11 @@ class LoginForm extends Component {
           )}
         </FormItem>
         <FormItem style={{ fontSize: 18, textAlign: "center" }}>
-          
+        
           <Button
             disabled={this.state.disabledBtn}
             htmlType="submit"
-            size="large"
             className="primary_btn"
-            style={{ background:"red" ,marginTop: 20 }}
           >
             {strings.login}
           </Button>
