@@ -1,87 +1,58 @@
-.primary_dark_big {
-    color: #00695f;
-    font-family: sans-serif;
-    font-size: 3em;
-  }
-  
-  .primary_dark {
-    color: #00695f;
-    font-family: sans-serif;
-    font-size: 2em;
-  }
-  
-  .primary_dark_small {
-    color: #00695f;
-    font-family: sans-serif;
-    font-size: 1em;
-  }
-  
-  .primary_big {
-    color: #009688;
-    font-family: sans-serif;
-    font-size: 3em;
-  }
-  
-  .primary_title {
-    color: #009688;
-    font-family: sans-serif;
-    font-size: 2em;
-  }
-  
-  .primary_small {
-    color: #009688;
-    font-family: sans-serif;
-    font-size: 1em;
-  }
-  
-  .accent_dark_big {
-    color: #ff3d00;
-    font-family: sans-serif;
-    font-size: 3em;
-  }
-  
-  .accent_dark {
-    color: #ff3d00;
-    font-family: sans-serif;
-    font-size: 2em;
-  }
-  
-  .accent_dark_small {
-    color: #ff3d00;
-    font-family: sans-serif;
-    font-size: 1em;
-  }
-  
-  .accent_big {
-    color: #ff6333;
-    font-family: sans-serif;
-    font-size: 3em;
-  }
-  
-  .accent {
-    color: #ff6333;
-    font-family: sans-serif;
-    font-size: 2em;
-  }
-  
-  .accent_small {
-    color: #ff6333;
-    font-family: sans-serif;
-    font-size: 1em;
-  }
-  
 
-  .primary_btn {
-    color:white;
-    background: #009688;
-    font-family: sans-serif;
-    font-size: 1em;
-  }
+:root {
+  --primaryDarkColor: #116466;
+  --primaryColor: #009688;
+  --accentDarkColor: #ac6f39;
+  --accentColor: #cc9666;
+}
 
-  .accent_btn {
-    color:white;
-    background: #ff6333;
-    font-family: sans-serif;
-    font-size: 1em;
-  }
-  
+@font-face {
+  font-family: 'IRANSans';
+  src: url("../res/assets/fonts/IRANSans.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.big_ptxt {
+  font-family: 'IRANSans';
+  font-size: 3em;
+  padding: 5;
+  margin: 5;
+}
+.ptxt {
+  font-family: 'IRANSans';
+  font-size: 1.1em;
+  padding: 5;
+  margin: 5;
+}
+
+.small_ptxt {
+  font-family: 'IRANSans';
+  font-size: 1em;
+  padding: 5;
+  margin: 5;
+}
+
+.primary_dark {
+  color:var(--primaryDarkColor);
+}
+
+.primary {
+  color:var(--primaryColor);
+}
+
+.accent_dark {
+  color:var(--accentDarkColor);
+}
+
+.accent {
+  color: var(--accentColor);
+}
+
+.primary_btn {
+  background: var(--primaryColor);
+}
+
+.accent_btn {
+  background: var(--accentColor);
+}
