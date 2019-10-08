@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { signup } from "../../util/APIUtils";
 import "./Signup.css";
+import "../../res/CssStyles.css";
+
 import { Link } from "react-router-dom";
 
 import { Form, Input, Button, notification, Card, Icon } from "antd";
@@ -82,10 +84,7 @@ class Signup extends Component {
     return (
       <div className="signup-container">
         <Card>
-          <h1
-            className="page-title"
-            style={{ color: "#009688", textAlign: "center" }}
-          >
+          <h1 className="big_ptxt accent" style={{ textAlign: "center" }}>
             {strings.signup}
           </h1>
           <div className="signup-content">
@@ -95,7 +94,13 @@ class Signup extends Component {
                   size="large"
                   name={strings.name}
                   style={{ textAlign: "center" }}
-                  suffix={<Icon type="smile" style={{ fontSize: "25px" }} />}
+                  className="ptxt"
+                  suffix={
+                    <Icon
+                      type="smile"
+                      style={{ fontSize: "25px"}}
+                    />
+                  }
                   placeholder={strings.full_name}
                   value={this.state.name.value}
                   onChange={event => this.handleInputChange(event)}
@@ -104,9 +109,15 @@ class Signup extends Component {
               <FormItem>
                 <Input
                   size="large"
+                  className="ptxt"
                   name={strings.email}
                   style={{ textAlign: "center" }}
-                  suffix={<Icon type="mail" style={{ fontSize: "25px" }} />}
+                  suffix={
+                    <Icon
+                      type="mail"
+                      style={{ fontSize: "25px"}}
+                    />
+                  }
                   type="email"
                   placeholder={strings.email}
                   value={this.state.email.value}
@@ -117,9 +128,15 @@ class Signup extends Component {
               <FormItem>
                 <Input
                   size="large"
+                  className="ptxt"
                   name="username"
                   style={{ textAlign: "center" }}
-                  suffix={<Icon type="user" style={{ fontSize: "25px" }} />}
+                  suffix={
+                    <Icon
+                      type="user"
+                      style={{ fontSize: "25px"}}
+                    />
+                  }
                   type="username"
                   placeholder={strings.username}
                   value={this.state.email.value}
@@ -130,27 +147,38 @@ class Signup extends Component {
                 <Input
                   size="large"
                   name="password"
+                  className="ptxt"
                   style={{ textAlign: "center" }}
-                  suffix={<Icon type="lock" style={{ fontSize: "25px" }} />}
+                  suffix={
+                    <Icon
+                      type="lock"
+                      style={{ fontSize: "25px"}}
+                    />
+                  }
                   type="password"
                   placeholder={strings.password}
                   value={this.state.password.value}
                   onChange={event => this.handleInputChange(event)}
                 />
               </FormItem>
-              <FormItem
-              style={{ fontSize: 18, textAlign: "center" }}>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  size="large"
-                  className="signup-form-button"
-                >
+              <FormItem style={{ fontSize: 18, textAlign: "center" }}>
+                <Button htmlType="submit" size="large" className="primary_btn">
                   {strings.signup}
                 </Button>
-                <div style={{ marginTop: 20 }}>
-                  {strings.already_have_account}{" "}
-                  <Link to="/login" style={{ marginTop: 10 }}>{strings.login}</Link>
+
+                <div style={{ marginTop: 20, flexDirection: "row" }}>
+                  <h4 className="ptxt">
+                    {strings.already_have_account}
+                    <span>
+                      <Link
+                        to="/login"
+                        className="ptxt accent"
+                        style={{ margin: 10 }}
+                      >
+                        {strings.login}
+                      </Link>
+                    </span>
+                  </h4>
                 </div>
               </FormItem>
             </Form>

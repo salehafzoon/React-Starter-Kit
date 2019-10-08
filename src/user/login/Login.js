@@ -41,11 +41,11 @@ class Login extends Component {
           <Card>
             <div className="login-container">
               <center>
-                <h1 className="big_ptxt primary">App Title</h1>
+                <h1 className="big_ptxt accent bold">App Title</h1>
               </center>
               <h2
                 className="page-title"
-                style={{ margin: 80, textAlign: "center" }}
+                style={{ margin: 60, textAlign: "center" }}
               >
                 {strings.login_to_site}
               </h2>
@@ -112,7 +112,8 @@ class LoginForm extends Component {
             rules: [{ required: true, message: "Please input your Email!" }]
           })(
             <Input
-              style={{ justifyContent: "center", textAlign: "center" }}
+              style={{ textAlign: "center" }}
+              className="ptxt"
               suffix={<Icon type="user" style={{ fontSize: "30px" }} />}
               size="large"
               name="email"
@@ -126,7 +127,8 @@ class LoginForm extends Component {
             rules: [{ required: true, message: "Please input your Password!" }]
           })(
             <Input
-              style={{ justifyContent: "center", textAlign: "center" }}
+              className="ptxt"
+              style={{ textAlign: "center" }}
               suffix={<Icon type="lock" style={{ fontSize: "30px" }} />}
               size="large"
               name="password"
@@ -136,7 +138,6 @@ class LoginForm extends Component {
           )}
         </FormItem>
         <FormItem style={{ fontSize: 18, textAlign: "center" }}>
-        
           <Button
             disabled={this.state.disabledBtn}
             htmlType="submit"

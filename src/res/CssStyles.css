@@ -12,17 +12,28 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "IRANSansBold";
+  src: url("../res/assets/fonts/IRANSans_Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .big_ptxt {
   font-family: "IRANSans";
-  font-size: 3em;
+  font-size: 2.5em;
   padding: 5;
-  margin: 5;
+  margin: 1;
 }
 .ptxt {
   font-family: "IRANSans";
   font-size: 1.1em;
   padding: 5;
   margin: 5;
+}
+
+.bold{
+  font-family: "IRANSansBold";
 }
 
 .small_ptxt {
@@ -70,6 +81,7 @@ button.primary_btn {
   cursor: pointer;
   
 }
+
 button.primary_btn:hover {
   color: white !important;
   background: var(--primaryDarkColor) !important;
@@ -77,14 +89,13 @@ button.primary_btn:hover {
   font-size: 1.3 em;
 }
 
-
 button.accent_btn {
   color: white !important;
   width: 100%;
   min-height: 45px !important;
-  background: var(--primaryColor) !important;
+  background: var(--accentColor) !important;
   font-family: "IRANSans";
-  font-size: 1.4em !important ;
+  font-size: 1.3em !important ;
   border-style: hidden !important;
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
@@ -96,9 +107,10 @@ button.accent_btn {
   cursor: pointer;
   
 }
+
 button.accent_btn:hover {
   color: white !important;
-  background: var(--primaryDarkColor) !important;
+  background: var(--accentDarkColor) !important;
   font-family: "IRANSans";
   font-size: 1.3 em;
 }
