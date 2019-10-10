@@ -12,10 +12,10 @@ export default class AppHeader extends Component {
     let menuItems;
     menuItems = [
       <Menu.Item key="/login">
-        <Link to="/login" className="ptxt">{strings.my_forms}</Link>
+        <Link to="/login" className="ptxt">{strings.login}</Link>
       </Menu.Item>,
       <Menu.Item key="/signup" className="ptxt">
-        <Link to="/signup">{strings.create_new_form}</Link>
+        <Link to="/signup">{strings.signup}</Link>
       </Menu.Item>
     ];
     return (

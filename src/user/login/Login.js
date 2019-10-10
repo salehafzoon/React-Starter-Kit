@@ -7,8 +7,18 @@ import { Link } from "react-router-dom";
 import { ACCESS_TOKEN } from "../../constants";
 
 import "antd/dist/antd.css";
-import { Form, Input, Button, Icon, notification, Card, Layout } from "antd";
+import {
+  Form,
+  Input,
+  Button,
+  Icon,
+  notification,
+  Card,
+  Layout,
+  message
+} from "antd";
 import strings from "../../res/Strings";
+import { timer } from "rxjs";
 
 const { Content } = Layout;
 const FormItem = Form.Item;
@@ -25,11 +35,13 @@ class Login extends Component {
   }
 
   handleLogin() {
-    notification.success({
-      message: "Chat App",
-      description: "You're successfully logged in."
-    });
 
+    message.loading("Action in progress..", 0);
+    
+    setTimeout(function(){message.destroy()}, 3000);
+
+    //insert your auth codes here.
+    
     this.props.history.replace("/Main");
   }
 
@@ -89,6 +101,9 @@ class LoginForm extends Component {
           });
       }
     });
+
+    this.props.onLogin()
+    
   }
 
   render() {
