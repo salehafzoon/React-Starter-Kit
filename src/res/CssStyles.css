@@ -25,6 +25,14 @@
   padding: 5;
   margin: 1;
 }
+
+.med_ptxt{
+  font-family: "IRANSans";
+  font-size: 1.6em;
+  padding: 5;
+  margin: 1;
+}
+
 .ptxt {
   font-family: "IRANSans";
   font-size: 1.1em;
@@ -113,4 +121,21 @@ button.accent_btn:hover {
   background: var(--accentDarkColor) !important;
   font-family: "IRANSans";
   font-size: 1.3 em;
+}
+
+.gray_rounded_btn{
+  color: gray !important;
+  border: gray !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-radius: 5px !important;
+  max-height: 3% !important;
+  margin: auto !important;
+  height: 40px !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding-bottom: 10px !important;
+}
+.menu_link{
+
 }

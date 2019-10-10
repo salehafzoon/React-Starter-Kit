@@ -83,8 +83,12 @@ class Signup extends Component {
   render() {
     return (
       <div className="signup-container">
+        <center>
+          <h1 className="big_ptxt accent bold">App Title</h1>
+        </center>
+
         <Card>
-          <h1 className="big_ptxt accent" style={{ textAlign: "center" }}>
+          <h1 className="med_ptxt" style={{ textAlign: "center",color:'gray' }}>
             {strings.signup}
           </h1>
           <div className="signup-content">
@@ -95,12 +99,7 @@ class Signup extends Component {
                   name={strings.name}
                   style={{ textAlign: "center" }}
                   className="ptxt"
-                  suffix={
-                    <Icon
-                      type="smile"
-                      style={{ fontSize: "25px"}}
-                    />
-                  }
+                  suffix={<Icon type="smile" style={{ fontSize: "25px" }} />}
                   placeholder={strings.full_name}
                   value={this.state.name.value}
                   onChange={event => this.handleInputChange(event)}
@@ -112,12 +111,7 @@ class Signup extends Component {
                   className="ptxt"
                   name={strings.email}
                   style={{ textAlign: "center" }}
-                  suffix={
-                    <Icon
-                      type="mail"
-                      style={{ fontSize: "25px"}}
-                    />
-                  }
+                  suffix={<Icon type="mail" style={{ fontSize: "25px" }} />}
                   type="email"
                   placeholder={strings.email}
                   value={this.state.email.value}
@@ -131,12 +125,7 @@ class Signup extends Component {
                   className="ptxt"
                   name="username"
                   style={{ textAlign: "center" }}
-                  suffix={
-                    <Icon
-                      type="user"
-                      style={{ fontSize: "25px"}}
-                    />
-                  }
+                  suffix={<Icon type="user" style={{ fontSize: "25px" }} />}
                   type="username"
                   placeholder={strings.username}
                   value={this.state.email.value}
@@ -149,12 +138,7 @@ class Signup extends Component {
                   name="password"
                   className="ptxt"
                   style={{ textAlign: "center" }}
-                  suffix={
-                    <Icon
-                      type="lock"
-                      style={{ fontSize: "25px"}}
-                    />
-                  }
+                  suffix={<Icon type="lock" style={{ fontSize: "25px" }} />}
                   type="password"
                   placeholder={strings.password}
                   value={this.state.password.value}

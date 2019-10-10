@@ -36,26 +36,14 @@ class Login extends Component {
   render() {
     const AntWrappedLoginForm = Form.create()(LoginForm);
     return (
-      <Layout className="app-container">
-        <Content className="app-content">
-          <Card>
-            <div className="login-container">
-              <center>
-                <h1 className="big_ptxt accent bold">App Title</h1>
-              </center>
-              <h2
-                className="page-title"
-                style={{ margin: 60, textAlign: "center" }}
-              >
-                {strings.login_to_site}
-              </h2>
-              <div className="login-content">
-                <AntWrappedLoginForm onLogin={this.handleLogin} />
-              </div>
-            </div>
-          </Card>
-        </Content>
-      </Layout>
+      <div className="login-container">
+        <center>
+          <h1 className="big_ptxt accent bold">App Title</h1>
+        </center>
+        <div className="login-content">
+          <AntWrappedLoginForm onLogin={this.handleLogin} />
+        </div>
+      </div>
     );
   }
 }
@@ -106,62 +94,75 @@ class LoginForm extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
-        <FormItem className="login-item">
-          {getFieldDecorator("email", {
-            rules: [{ required: true, message: "Please input your Email!" }]
-          })(
-            <Input
-              style={{ textAlign: "center" }}
-              className="ptxt"
-              suffix={<Icon type="user" style={{ fontSize: "30px" }} />}
-              size="large"
-              name="email"
-              type="email"
-              placeholder={strings.email}
-            />
-          )}
-        </FormItem>
-        <FormItem className="login-item">
-          {getFieldDecorator("password", {
-            rules: [{ required: true, message: "Please input your Password!" }]
-          })(
-            <Input
-              className="ptxt"
-              style={{ textAlign: "center" }}
-              suffix={<Icon type="lock" style={{ fontSize: "30px" }} />}
-              size="large"
-              name="password"
-              type="password"
-              placeholder={strings.password}
-            />
-          )}
-        </FormItem>
-        <FormItem style={{ fontSize: 18, textAlign: "center" }}>
-          <Button
-            disabled={this.state.disabledBtn}
-            htmlType="submit"
-            className="primary_btn"
+      <div className="signup-container">
+        <Card>
+          <h4
+            className="med_ptxt"
+            style={{ textAlign: "center", color: "gray" }}
           >
-            {strings.login}
-          </Button>
+            {strings.login_to_site}
+          </h4>
 
-          <div style={{ marginTop: 20, flexDirection: "row" }}>
-            <h4 className="ptxt">
-              {strings.dont_have_account}
-              <span>
-                <Link
-                  to="/signup"
-                  className="ptxt accent"
-                  style={{ margin: 10 }}
-                >
-                  {strings.signup}
-                </Link>
-              </span>
-            </h4>
-          </div>
-        </FormItem>
-      </Form>
+          <Form onSubmit={this.handleSubmit} className="login-form">
+            <FormItem className="login-item">
+              {getFieldDecorator("email", {
+                rules: [{ required: true, message: "Please input your Email!" }]
+              })(
+                <Input
+                  style={{ textAlign: "center" }}
+                  className="ptxt"
+                  suffix={<Icon type="user" style={{ fontSize: "30px" }} />}
+                  size="large"
+                  name="email"
+                  type="email"
+                  placeholder={strings.email}
+                />
+              )}
+            </FormItem>
+            <FormItem className="login-item">
+              {getFieldDecorator("password", {
+                rules: [
+                  { required: true, message: "Please input your Password!" }
+                ]
+              })(
+                <Input
+                  className="ptxt"
+                  style={{ textAlign: "center" }}
+                  suffix={<Icon type="lock" style={{ fontSize: "30px" }} />}
+                  size="large"
+                  name="password"
+                  type="password"
+                  placeholder={strings.password}
+                />
+              )}
+            </FormItem>
+            <FormItem style={{ fontSize: 18, textAlign: "center" }}>
+              <Button
+                disabled={this.state.disabledBtn}
+                htmlType="submit"
+                className="primary_btn"
+              >
+                {strings.login}
+              </Button>
+
+              <div style={{ marginTop: 20, flexDirection: "row" }}>
+                <h4 className="ptxt">
+                  {strings.dont_have_account}
+                  <span>
+                    <Link
+                      to="/signup"
+                      className="ptxt accent"
+                      style={{ margin: 10 }}
+                    >
+                      {strings.signup}
+                    </Link>
+                  </span>
+                </h4>
+              </div>
+            </FormItem>
+          </Form>
+        </Card>
+      </div>
     );
   }
 }

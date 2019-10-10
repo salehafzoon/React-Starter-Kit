@@ -6,6 +6,7 @@ import { Layout, notification } from "antd";
 import { ACCESS_TOKEN } from "../constants";
 
 import AppRouter from "./AppRouter";
+import AppHeader from "../common/AppHeader";
 
 const { Content } = Layout;
 
@@ -25,7 +26,19 @@ class App extends Component {
   }
 
   render() {
-    return <AppRouter />;
+    return (
+      <Layout className="app-container">
+        <AppHeader
+          // isAuthenticated={this.state.isAuthenticated}
+          // currentUser={this.state.currentUser}
+          // onLogout={this.handleLogout}
+        />
+
+        <Content  className="app-content">
+          <AppRouter />
+        </Content>
+      </Layout>
+    );
   }
 }
 
