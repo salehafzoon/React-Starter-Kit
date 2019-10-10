@@ -8,7 +8,8 @@ The project consist of these configrations:
 - axios
 - ant design library
 - react-router
-- persian fonts located in res/assets/fonts
+- persian fonts located at res/assets/fonts
+- pre-designed style located at res/CssStyles.css
 
 it also contains pre-designed login and signup pages and a header for website.
 
@@ -49,5 +50,17 @@ or:
 ```terminal
 > yarn install
 ```
+
+you can set your own color schema by editing css variables located at res/CssStyles.css
+```bash
+:root {
+  --primaryDarkColor: #116466;
+  --primaryColor: #009688;
+  --accentDarkColor: #ac6f39;
+  --accentColor: #cc9666;
+}
+...
+```
+
 
 
