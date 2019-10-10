@@ -42,6 +42,7 @@ and also index.html in public folder:
 ...
 ```
 
+delete ```yarn.lock``` before installing packages 
 and at the last just install packages by:
 ```terminal
 > npm install 
